@@ -5,8 +5,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  void clickButton() {
+  print('Button Clicked!');
+}
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      'What is your name?',
+      'Where do you live?',
+      'What job do you do?',
+      'How old are you?'
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -22,19 +32,23 @@ class MyApp extends StatelessWidget {
               width: double.infinity,
               margin: EdgeInsets.all(6),
               child: 
-            Text('Choose from below:', style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+            Text(questions.elementAt(3), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
             ),
             ElevatedButton(
               child: Text('Register'),
-              onPressed: null,
+              onPressed: () {
+                print('Register!');
+              },
             ),
             ElevatedButton(
               child: Text('Login'),
-              onPressed: null,
+              onPressed: () {
+                print('Login!');
+              },
             ),
             ElevatedButton(
               child: Text('Contact'),
-              onPressed: null,
+              onPressed: () => print('Contact!'),
             ),
           ],
         ),
@@ -42,3 +56,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// void clickButton() {
+//   print('Button Clicked!');
+// }
