@@ -4,10 +4,16 @@ void main() {
   runApp(MyApp());
 }
 
+// For Next Time: Covert StatelessWidget --> StatefulWidget
+
 class MyApp extends StatelessWidget {
+  var indexValue = 3;
+
   void clickButton() {
-  print('Button Clicked!');
-}
+    indexValue -= 1;
+    print(indexValue);
+  }
+
   @override
   Widget build(BuildContext context) {
     var questions = [
@@ -32,13 +38,11 @@ class MyApp extends StatelessWidget {
               width: double.infinity,
               margin: EdgeInsets.all(6),
               child: 
-            Text(questions.elementAt(3), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+            Text(questions.elementAt(indexValue), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
             ),
             ElevatedButton(
               child: Text('Register'),
-              onPressed: () {
-                print('Register!');
-              },
+              onPressed: clickButton,
             ),
             ElevatedButton(
               child: Text('Login'),
