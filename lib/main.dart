@@ -4,14 +4,22 @@ void main() {
   runApp(MyApp());
 }
 
-// For Next Time: Covert StatelessWidget --> StatefulWidget
+// For Next Time: Make state class and properties private & put question into separate widget
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget>createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
   var indexValue = 3;
 
   void clickButton() {
-    indexValue -= 1;
-    print(indexValue);
+    setState(() {
+      indexValue -= 1;
+    });
   }
 
   @override
@@ -60,7 +68,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// void clickButton() {
-//   print('Button Clicked!');
-// }
