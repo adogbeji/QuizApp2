@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// For Next Time: Make state class and properties private & put question into separate widget
+// For Next Time: Move buttons to a separate Answer widget
 
 class MyApp extends StatefulWidget {
   @override
@@ -42,12 +43,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              margin: EdgeInsets.all(6),
-              child: 
-            Text(questions.elementAt(_indexValue), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
-            ),
+            Question(questions[_indexValue]),
             ElevatedButton(
               child: Text('Register'),
               onPressed: _clickButton,
