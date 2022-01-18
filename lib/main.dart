@@ -9,16 +9,16 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget>createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var indexValue = 3;
+class _MyAppState extends State<MyApp> {
+  var _indexValue = 3;
 
-  void clickButton() {
+  void _clickButton() {
     setState(() {
-      indexValue -= 1;
+      _indexValue -= 1;
     });
   }
 
@@ -46,11 +46,11 @@ class MyAppState extends State<MyApp> {
               width: double.infinity,
               margin: EdgeInsets.all(6),
               child: 
-            Text(questions.elementAt(indexValue), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+            Text(questions.elementAt(_indexValue), style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
             ),
             ElevatedButton(
               child: Text('Register'),
-              onPressed: clickButton,
+              onPressed: _clickButton,
             ),
             ElevatedButton(
               child: Text('Login'),
