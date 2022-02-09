@@ -12,7 +12,7 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget>createState() {
+  State<StatefulWidget> createState() {
     return _MyAppState();
   }
 }
@@ -29,10 +29,28 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What is your name?',
-      'Where do you live?',
-      'What job do you do?',
-      'How old are you?'
+      {
+        'question': 'What is your name?',
+        'answers': ['Jack', 'Michael', 'Josh', 'Amy', 'Chris'],
+      },
+      {
+        'question': 'Where do you live?',
+        'answers': [
+          'Nottingham',
+          'Oxford',
+          'Liverpool',
+          'Birmingham',
+          'London'
+        ],
+      },
+      {
+        'question': 'What job do you do?',
+        'answers': ['Journalist', 'Estate Agent', 'Doctor', 'Teacher', 'Chef'],
+      },
+      {
+        'question': 'How old are you?',
+        'answers': [28, 34, 23, 45, 39, 32],
+      }
     ];
 
     return MaterialApp(
@@ -40,13 +58,16 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Container(
             width: double.infinity,
-            child:
-          const Text('Questionnare App!', style: TextStyle(fontSize: 24), textAlign: TextAlign.center,),
+            child: const Text(
+              'Questionnare App!',
+              style: TextStyle(fontSize: 24),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         body: Column(
           children: <Widget>[
-            Question(questions[_indexValue]),
+            Question(questions[_indexValue]['question']),
             Answer(_clickButton),
             Answer(_clickButton),
             Answer(_clickButton),
