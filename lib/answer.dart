@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   final VoidCallback answerQuestion;
+  final String answerText;
 
-  Answer(this.answerQuestion);
+  Answer(this.answerQuestion, this.answerText);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Text('Register'),
+      child: Text(answerText),
       onPressed: answerQuestion,
     );
   }

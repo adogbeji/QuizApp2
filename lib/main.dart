@@ -49,7 +49,14 @@ class _MyAppState extends State<MyApp> {
       },
       {
         'question': 'How old are you?',
-        'answers': [28, 34, 23, 45, 39, 32],
+        'answers': [
+          28.toString(),
+          34.toString(),
+          23.toString(),
+          45.toString(),
+          39.toString(),
+          32.toString()
+        ],
       }
     ];
 
@@ -68,9 +75,10 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(questions[_indexValue]['question']),
-            Answer(_clickButton),
-            Answer(_clickButton),
-            Answer(_clickButton),
+            
+            ...(questions[_indexValue]['answers'] as List<String>).map((answer) {
+              return Answer(_clickButton, answer);
+            }).toList(),
           ],
         ),
       ),
