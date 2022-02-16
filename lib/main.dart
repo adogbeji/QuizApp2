@@ -8,7 +8,7 @@ void main() {
   runApp(MyApp());
 }
 
-// For Next Time: Show a different screen when questions are finished
+// For Next Time: Start splitting up your widget tree!
 
 class MyApp extends StatefulWidget {
   @override
@@ -72,14 +72,15 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: Column(
+        body: _indexValue >= 0 ? Column(
           children: <Widget>[
             Question(questions[_indexValue]['question']),
-
             ...(questions[_indexValue]['answers'] as List<String>).map((answer) {
               return Answer(_clickButton, answer);
             }).toList(),
           ],
+        ): Center(
+          child: Text('Well done!', style: TextStyle(fontSize: 18,),),
         ),
       ),
     );
