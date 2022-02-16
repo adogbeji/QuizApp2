@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    final questions = [
       {
         'question': 'What is your name?',
         'answers': ['Jack', 'Michael', 'Josh', 'Amy', 'Chris'],
