@@ -8,7 +8,7 @@ void main() {
   runApp(MyApp());
 }
 
-// For Next Time: Turn list of questions into list of maps with answer
+// For Next Time: Show a different screen when questions are finished
 
 class MyApp extends StatefulWidget {
   @override
@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(questions[_indexValue]['question']),
-            
+
             ...(questions[_indexValue]['answers'] as List<String>).map((answer) {
               return Answer(_clickButton, answer);
             }).toList(),
