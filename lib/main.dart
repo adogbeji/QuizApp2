@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 // Widget Imports
 import './question.dart';
 import './answer.dart';
+import './quiz.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// For Next Time: Start splitting up your widget tree!
+// For Next Time: Continue splitting up your widget tree (lesson 51)!
 
 class MyApp extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final questions = [
+    final _questions = [
       {
         'question': 'What is your name?',
         'answers': ['Jack', 'Michael', 'Josh', 'Amy', 'Chris'],
@@ -72,14 +73,8 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: _indexValue >= 0 ? Column(
-          children: <Widget>[
-            Question(questions[_indexValue]['question']),
-            ...(questions[_indexValue]['answers'] as List<String>).map((answer) {
-              return Answer(_clickButton, answer);
-            }).toList(),
-          ],
-        ): Center(
+        body: _indexValue >= 0 ? Quiz(chooseAnswer: _clickButton, questions: _questions, indexValue: _indexValue,) 
+        : Center(
           child: Text('Well done!', style: TextStyle(fontSize: 18,),),
         ),
       ),
